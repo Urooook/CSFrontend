@@ -89,37 +89,3 @@ export default class TaskProcessor {
     }
 }
 
-const taskProcessor = new TaskProcessor();
-
-let total = 0;
-
-const nums = [...Array(5e6).keys()]
-const nums1 = [...Array(2e6).keys()]
-const nums2 = [...Array(3e6).keys()]
-const nums3 = [...Array(4e6).keys()]
-
-taskProcessor.forEach(nums, (el) => {
-    total++;
-}).then(() => {
-    console.log(total);
-});
-
-taskProcessor.forEach(nums1, (el) => {
-    total++;
-}).then(() => {
-    console.log(total);
-});
-
-taskProcessor.forEach(nums2, (el) => {
-    total++;
-}).then(() => {
-    console.log(total);
-});
-
-taskProcessor.forEach(nums3, (el) => {
-    total++;
-}).then(() => {
-    console.log(total);
-});
-
-
