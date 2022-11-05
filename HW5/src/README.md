@@ -25,7 +25,7 @@
 
    ```js
    shortString('aaaabbbbczzzz'); // 'abcz'
-   shortString(abababbbabcabc'); // 'abbabc'
+   shortString('abababbbabcabc'); // 'abbabc'
    shortString('foofoobabaaaazze'); // 'foobaaze'
    ```
 
