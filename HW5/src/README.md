@@ -4,8 +4,8 @@
    если в строке есть символы отличные от латинских, цифр, подчеркивания и знака $
 
    ```js
-  isAlphaAndNumericAndDollar.test('привет'); // false
-  isAlphaAndNumericAndDollar('asd$_123'); // true
+   isAlphaAndNumericAndDollar.test('привет'); // false
+   isAlphaAndNumericAndDollar('asd$_123'); // true
    ```
 
 2.  Создание массива на основе строки, где раздилителем будут символы . , ; или пробелы (подряд идущие пробелы считаются за один)
