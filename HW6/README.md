@@ -93,3 +93,32 @@ const numbers = [1, 2, 3];
 const numberMappers = [(num: number) => num * 2, (num: number) => num + 1];
 console.log([...mapSeq(numbers, numberMappers)]); // [3, 5, 7]
 ```
+
+## 2. Реализация перебираемого диапазона числовых/строковых значений
+
+Решение представлено классом Range. Конструктор класса принимает два значения (начало и конец диапазона), которые могут быть числовыми или строковыми. Величина начала диапазона может быть больше величины конца, в этом случае диапазон будет реверсивным (перебор элементов будет идти в обратном порядке, т.е. по убыванию). Границы диапазонов включены в сам диапазон.
+
+Диапазон реализует интерфейс Iterable (может быть перебран в цикле for...of, развернут оператором spread и т.д.). Кроме этого предоставляется метод для обратного перебора:
+
+```ts
+reverse(): IterableIterator<StrOrNum<T>>
+```
+
+Тип StrOrNum определяется как
+
+```ts
+type StrOrNum<T> = T extends number ? number : string;
+```
+
+Примеры использования:
+
+```js
+const rangeOfNums = new Range(1, 5);
+console.log([...rangeOfNums]); // [1, 2, 3, 4, 5]
+console.log([...rangeOfNums.reverse()]); // [5, 4, 3, 2, 1]
+
+const rangeOfStrings = new Range('a', 'e');
+console.log([...rangeOfStrings]); // ['a', 'b', 'c', 'd', 'e']
+console.log([...rangeOfStrings.reverse()]); // ['e', 'd', 'c', 'b', 'a']
+```
+
