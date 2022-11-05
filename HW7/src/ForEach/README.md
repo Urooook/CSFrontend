@@ -19,7 +19,6 @@ forEach(array, (num) => {
   total++;
 }).then(() => {
   console.log(total); // 5e5
-  console.log('Finished!');
 });
 ```
 
