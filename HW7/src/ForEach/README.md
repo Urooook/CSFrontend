@@ -18,7 +18,7 @@ let total = 0;
 forEach(array, (num) => {
   total++;
 }).then(() => {
-  console.log(sumOfNums); // 5e5
+  console.log(total); // 5e5
   console.log('Finished!');
 });
 ```
