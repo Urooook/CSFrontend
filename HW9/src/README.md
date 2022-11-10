@@ -69,7 +69,15 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
                 console.log(data === values[0]); // true
             })
 ```
-- high = 2
+- Race. Метод очень похож на SyncPromise.all, но ждёт только первый выполненный промис, из которого берёт результат (или ошибку).
+```ts
+        const values = [1223, 45116];
+
+        SyncPromise.race([SyncPromise.resolve(values[0]), SyncPromise.reject(values[1]), values])
+            .then((data) => {
+                console.log(data === values[0]); // true
+            });
+```
 - critical = 4
 
 Пример использования:
