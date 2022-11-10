@@ -61,10 +61,10 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
             })
 ```
 - All - возвращает промис вида SyncPromise, который выполнится тогда, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента, или отклонен любой из переданных промисов.
-- ```ts
--  const values = [1223, 45116];
--  
-   SyncPromise.all([SyncPromise.resolve(values[0]), SyncPromise.resolve(values[1]), values])
+ ```ts
+  const values = [1223, 45116];
+  
+  SyncPromise.all([SyncPromise.resolve(values[0]), SyncPromise.resolve(values[1]), values])
             .then((data) => {
                 console.log(data === values[0]); // true
             })
