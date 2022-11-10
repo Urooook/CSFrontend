@@ -49,7 +49,13 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
 ```
 В SyncPromise реализованы все статические методы, как и в нативном Promise, а именно:
 
-- low = 0.5
+- resolve/reject
+```ts
+   SyncPromise.resolve(123);
+   SyncPromise.resolve(SyncPromise.resolve(SyncPromise.reject(123))).then((data) => {
+               console.log(data); // 123
+            })
+```
 - average = 1
 - high = 2
 - critical = 4
