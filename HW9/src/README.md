@@ -61,24 +61,13 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
             })
 ```
 - All - возвращает промис вида SyncPromise, который выполнится тогда, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента, или отклонен любой из переданных промисов.
- ```ts
-  const values = [1223, 45116];
-  
-  SyncPromise.all([SyncPromise.resolve(values[0]), SyncPromise.resolve(values[1]), values])
-            .then((data) => {
-                console.log(data === values[0]); // true
-            })
-```
 - Race. Метод очень похож на SyncPromise.all, но ждёт только первый выполненный промис, из которого берёт результат (или ошибку).
-```ts
-        const values = [1223, 45116];
-
-        SyncPromise.race([SyncPromise.resolve(values[0]), SyncPromise.reject(values[1]), values])
-            .then((data) => {
-                console.log(data === values[0]); // true
-            });
+- Any. Метод очень похож на Promise.race, но ждёт только первый успешно выполненный промис, из которого берёт результат.
+- AllSettled. Метод SyncPromise.allSettled всегда ждёт завершения всех промисов. В массиве результатов будет
+```js
+{status:"fulfilled", value:результат} // для успешных завершений,
+{status:"rejected", reason:ошибка} // для ошибок.
 ```
-- critical = 4
 
 Пример использования:
    ```js
