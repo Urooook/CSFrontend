@@ -29,8 +29,9 @@ const immediate = setImmediateCustom(func);
 const immediate2 = setImmediateCustom(func, ...args);
 ```
 
-4. Необходимо написать функцию promisify, которая бы принимала функцию, где последний аргумент thunk-callback и возвращала бы
-   новую функцию. Новая функция вместо thunk-callback будет возвращать Promise.
+## Функция promisify, 
+ Функция, которая бы принимала функцию, где последний аргумент thunk-callback и возвращала бы  новую функцию. Новая функция вместо thunk-callback будет возвращать   Promise.
+ thunk-callback - функция, которая первым бы параметром принимала ошибку(если есть), а вторам - параметры(если есть).
 
    ```js
    function readFile(file, cb) {
@@ -38,7 +39,7 @@ const immediate2 = setImmediateCustom(func, ...args);
    }
    
    const readFilePromise = promisify(readFile);
-   readFilePromise('my-file.txt').then(console.log).catch(console.error);
+   readFilePromise('file.txt').then(console.log).catch(console.error);
    ```
 
 5. Необходимо написать класс SyncPromise, аналогичный нативному, но работающий синхронно, если это возможно.
