@@ -23,18 +23,10 @@ timeout(func: Promise<void> | Promise<Response>, delay: number)
    ```
 
 ## Функция setImmediate/clearImmediate по аналогии с node.js.
+Функция setImmediateCustom принимает в качестве параметров функцию и аргументы функции
 ```js
-// Функция setImmediateCustom принимает в качестве параметров функцию и аргументы функции
 const immediate = setImmediateCustom(func);
 const immediate2 = setImmediateCustom(func, ...args);
-
-// Функция setImmediateCustom возвращает экземпляр класса ImmediateTask
-// ImmediateTask { onImmediate: [Function: func2], parameters: [ 1, 2 ] }
-// ImmediateTask имеет геттер destroyed - состояния задачи
-// ImmediateTask имеет метод cancel для отметы задачи
-
-// Функция clearImmediateCustom принимает в качестве параметра ImmediateTask и отменяет задачу
-clearImmediateCustom(immediate)   
 ```
 
 4. Необходимо написать функцию promisify, которая бы принимала функцию, где последний аргумент thunk-callback и возвращала бы
