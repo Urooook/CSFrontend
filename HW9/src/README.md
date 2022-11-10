@@ -49,6 +49,10 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
 ```
 В SyncPromise реализованы все статические методы, как и в нативном Promise, а именно:
 
+- low = 0.5
+- average = 1
+- high = 2
+- critical = 4
 
 Пример использования:
    ```js
