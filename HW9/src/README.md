@@ -76,8 +76,10 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
    ```
 
 
-7. Необходимо написать функцию allLimit, которая бы принимала Iterable функций, возвращающих Promise (или обычные значения) и лимит одновременных Promise.
-   Одновременно не должно быть более заданного числа Promise в Pending.
+## Функция allLimit.
+Функция принимает Iterable функций, возвращающих Promise (или обычные значения) и лимит одновременных Promise.
+Одновременно не может быть более заданного числа Promise в Pending.
 
    ```js
    allLimit([f1, f2, f3, f4, f5, f6], 2).then(console.log).catch(console.error);
+   ```
