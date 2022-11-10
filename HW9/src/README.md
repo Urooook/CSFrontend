@@ -42,14 +42,20 @@ const immediate2 = setImmediateCustom(func, ...args);
    readFilePromise('file.txt').then(console.log).catch(console.error);
    ```
 
-5. Необходимо написать класс SyncPromise, аналогичный нативному, но работающий синхронно, если это возможно.
+## Класс SyncPromise аналогичный нативному Promise, но работающий синхронно, если это возможно.
+Конструктор принимает в себя функцию конструктор вида:
+```ts
+constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void) => void)
+```
+В SyncPromise реализованы все статические методы, как и в нативном Promise, а именно:
 
+
+Пример использования:
    ```js
    SyncPromise.resolve(1).then(console.log); // 1
    console.log(2);                           // 2
    ```
 
-6. Реализовать все статические методы Promise в SyncPromise *
 
 7. Необходимо написать функцию allLimit, которая бы принимала Iterable функций, возвращающих Promise (или обычные значения) и лимит одновременных Promise.
    Одновременно не должно быть более заданного числа Promise в Pending.
