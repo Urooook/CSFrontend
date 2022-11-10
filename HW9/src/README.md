@@ -44,6 +44,7 @@ const immediate2 = setImmediateCustom(func, ...args);
 
 ## Класс SyncPromise аналогичный нативному Promise, но работающий синхронно, если это возможно.
 Конструктор принимает в себя функцию конструктор вида:
+Есть такие методы как then, catch, finally
 ```ts
 constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void) => void)
 ```
@@ -55,8 +56,19 @@ constructor(constr: (resolve: (value: T) => void, reject: (reason?: any) => void
    SyncPromise.resolve(SyncPromise.resolve(SyncPromise.reject(123))).then((data) => {
                console.log(data); // 123
             })
+    SyncPromise.reject(SyncPromise.resolve(SyncPromise.reject(testValue))).catch((err) => {
+                console.log(data); // 123
+            })
 ```
-- average = 1
+- All - возвращает промис вида SyncPromise, который выполнится тогда, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента, или отклонен любой из переданных промисов.
+- ```ts
+-  const values = [1223, 45116];
+-  
+   SyncPromise.all([SyncPromise.resolve(values[0]), SyncPromise.resolve(values[1]), values])
+            .then((data) => {
+                console.log(data === values[0]); // true
+            })
+```
 - high = 2
 - critical = 4
 
