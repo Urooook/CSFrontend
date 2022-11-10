@@ -1,6 +1,6 @@
 type ImmediateCallback = () => void;
 
-type ImmediateTimer = {};
+type ImmediateTimer = {} ;
 
 export const [setImmediate, clearImmediate] = (() => {
     const callbacks = new WeakMap<ImmediateTimer, ImmediateCallback>();
