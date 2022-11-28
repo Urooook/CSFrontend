@@ -18,11 +18,7 @@
 
 3. Реализация Drag&Drop логики как композиции асинхронных итераторов.
 
-   ```js
-   import on from '../dist/on'
-import {take, filter, seq, onlyEvent, every, any, repeat} from '../dist/helpers'
-import once from '../dist/once'
-
+```js
 const box = document.getElementById('box');
 const container = document.getElementById('container');
 const shiftX = box.offsetWidth / 2;
